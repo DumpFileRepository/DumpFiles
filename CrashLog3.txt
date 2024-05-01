@@ -1,0 +1,235 @@
+
+************* Preparing the environment for Debugger Extensions Gallery repositories **************
+   ExtensionRepository : Implicit
+   UseExperimentalFeatureForNugetShare : true
+   AllowNugetExeUpdate : true
+   NonInteractiveNuget : true
+   AllowNugetMSCredentialProviderInstall : true
+   AllowParallelInitializationOfLocalRepositories : true
+
+   EnableRedirectToV8JsProvider : false
+
+   -- Configuring repositories
+      ----> Repository : LocalInstalled, Enabled: true
+      ----> Repository : UserExtensions, Enabled: true
+
+>>>>>>>>>>>>> Preparing the environment for Debugger Extensions Gallery repositories completed, duration 0.000 seconds
+
+************* Waiting for Debugger Extensions Gallery to Initialize **************
+
+>>>>>>>>>>>>> Waiting for Debugger Extensions Gallery to Initialize completed, duration 0.031 seconds
+   ----> Repository : UserExtensions, Enabled: true, Packages count: 0
+   ----> Repository : LocalInstalled, Enabled: true, Packages count: 41
+
+Microsoft (R) Windows Debugger Version 10.0.27553.1004 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [A:\MyStuff\Crash Logs\042724-10250-01.dmp]
+Mini Kernel Dump File: Only registers and stack trace are available
+
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*
+Symbol search path is: srv*
+Executable search path is: 
+Windows 10 Kernel Version 19041 MP (16 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Edition build lab: 19041.1.amd64fre.vb_release.191206-1406
+Kernel base = 0xfffff800`61200000 PsLoadedModuleList = 0xfffff800`61e2a790
+Debug session time: Sat Apr 27 18:14:08.174 2024 (UTC - 4:00)
+System Uptime: 0 days 22:37:12.801
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+...........................
+Loading User Symbols
+
+Loading unloaded module list
+......................
+For analysis of this file, run !analyze -v
+nt!KeBugCheckEx:
+fffff800`615fda40 48894c2408      mov     qword ptr [rsp+8],rcx ss:ffffcc02`8bc9e7b0=0000000000000109
+0: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+CRITICAL_STRUCTURE_CORRUPTION (109)
+This BugCheck is generated when the kernel detects that critical kernel code or
+data have been corrupted. There are generally three causes for a corruption:
+1) A driver has inadvertently or deliberately modified critical kernel code
+ or data. See http://www.microsoft.com/whdc/driver/kernel/64bitPatching.mspx
+2) A developer attempted to set a normal kernel breakpoint using a kernel
+ debugger that was not attached when the system was booted. Normal breakpoints,
+ "bp", can only be set if the debugger is attached at boot time. Hardware
+ breakpoints, "ba", can be set at any time.
+3) A hardware corruption occurred, e.g. failing RAM holding kernel code or data.
+Arguments:
+Arg1: a3a010e7137045c2, Reserved
+Arg2: b3b71d6d65f2fb9a, Reserved
+Arg3: fffff800661a1ff0, Failure type dependent information
+Arg4: 0000000000000001, Type of corrupted region, can be
+	0   : A generic data region
+	1   : Modification of a function or .pdata
+	2   : A processor IDT
+	3   : A processor GDT
+	4   : Type 1 process list corruption
+	5   : Type 2 process list corruption
+	6   : Debug routine modification
+	7   : Critical MSR modification
+	8   : Object type
+	9   : A processor IVT
+	a   : Modification of a system service function
+	b   : A generic session data region
+	c   : Modification of a session function or .pdata
+	d   : Modification of an import table
+	e   : Modification of a session import table
+	f   : Ps Win32 callout modification
+	10  : Debug switch routine modification
+	11  : IRP allocator modification
+	12  : Driver call dispatcher modification
+	13  : IRP completion dispatcher modification
+	14  : IRP deallocator modification
+	15  : A processor control register
+	16  : Critical floating point control register modification
+	17  : Local APIC modification
+	18  : Kernel notification callout modification
+	19  : Loaded module list modification
+	1a  : Type 3 process list corruption
+	1b  : Type 4 process list corruption
+	1c  : Driver object corruption
+	1d  : Executive callback object modification
+	1e  : Modification of module padding
+	1f  : Modification of a protected process
+	20  : A generic data region
+	21  : A page hash mismatch
+	22  : A session page hash mismatch
+	23  : Load config directory modification
+	24  : Inverted function table modification
+	25  : Session configuration modification
+	26  : An extended processor control register
+	27  : Type 1 pool corruption
+	28  : Type 2 pool corruption
+	29  : Type 3 pool corruption
+	2a  : Type 4 pool corruption
+	2b  : Modification of a function or .pdata
+	2c  : Image integrity corruption
+	2d  : Processor misconfiguration
+	2e  : Type 5 process list corruption
+	2f  : Process shadow corruption
+	30  : Retpoline code page corruption
+	101 : General pool corruption
+	102 : Modification of win32k.sys
+
+Debugging Details:
+------------------
+
+
+KEY_VALUES_STRING: 1
+
+    Key  : Analysis.CPU.mSec
+    Value: 2608
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 11516
+
+    Key  : Analysis.IO.Other.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Read.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Write.Mb
+    Value: 0
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 296
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 2185
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 103
+
+    Key  : Bugcheck.Code.LegacyAPI
+    Value: 0x109
+
+    Key  : Bugcheck.Code.TargetModel
+    Value: 0x109
+
+    Key  : Failure.Bucket
+    Value: 0x109_1_tcpip!IPSecOutboundTunnelFilterCalloutClassifyCommon
+
+    Key  : Failure.Hash
+    Value: {175e2941-14c8-e781-4f7b-06d656099142}
+
+    Key  : WER.OS.Branch
+    Value: vb_release
+
+    Key  : WER.OS.Version
+    Value: 10.0.19041.1
+
+
+BUGCHECK_CODE:  109
+
+BUGCHECK_P1: a3a010e7137045c2
+
+BUGCHECK_P2: b3b71d6d65f2fb9a
+
+BUGCHECK_P3: fffff800661a1ff0
+
+BUGCHECK_P4: 1
+
+FILE_IN_CAB:  042724-10250-01.dmp
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+
+
+BLACKBOXNTFS: 1 (!blackboxntfs)
+
+
+BLACKBOXPNP: 1 (!blackboxpnp)
+
+
+BLACKBOXWINLOGON: 1
+
+CUSTOMER_CRASH_COUNT:  1
+
+PROCESS_NAME:  System
+
+STACK_TEXT:  
+ffffcc02`8bc9e7a8 00000000`00000000     : 00000000`00000109 a3a010e7`137045c2 b3b71d6d`65f2fb9a fffff800`661a1ff0 : nt!KeBugCheckEx
+
+
+SYMBOL_NAME:  tcpip!IPSecOutboundTunnelFilterCalloutClassifyCommon+0
+
+MODULE_NAME: tcpip
+
+IMAGE_NAME:  tcpip.sys
+
+IMAGE_VERSION:  10.0.19041.4239
+
+STACK_COMMAND:  .cxr; .ecxr ; kb
+
+BUCKET_ID_FUNC_OFFSET:  0
+
+FAILURE_BUCKET_ID:  0x109_1_tcpip!IPSecOutboundTunnelFilterCalloutClassifyCommon
+
+OS_VERSION:  10.0.19041.1
+
+BUILDLAB_STR:  vb_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {175e2941-14c8-e781-4f7b-06d656099142}
+
+Followup:     MachineOwner
+---------
+

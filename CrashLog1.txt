@@ -1,0 +1,220 @@
+
+************* Preparing the environment for Debugger Extensions Gallery repositories **************
+   ExtensionRepository : Implicit
+   UseExperimentalFeatureForNugetShare : true
+   AllowNugetExeUpdate : true
+   NonInteractiveNuget : true
+   AllowNugetMSCredentialProviderInstall : true
+   AllowParallelInitializationOfLocalRepositories : true
+
+   EnableRedirectToV8JsProvider : false
+
+   -- Configuring repositories
+      ----> Repository : LocalInstalled, Enabled: true
+      ----> Repository : UserExtensions, Enabled: true
+
+>>>>>>>>>>>>> Preparing the environment for Debugger Extensions Gallery repositories completed, duration 0.000 seconds
+
+************* Waiting for Debugger Extensions Gallery to Initialize **************
+
+>>>>>>>>>>>>> Waiting for Debugger Extensions Gallery to Initialize completed, duration 0.031 seconds
+   ----> Repository : UserExtensions, Enabled: true, Packages count: 0
+   ----> Repository : LocalInstalled, Enabled: true, Packages count: 41
+
+Microsoft (R) Windows Debugger Version 10.0.27553.1004 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [A:\MyStuff\Crash Logs\042224-15640-01.dmp]
+Mini Kernel Dump File: Only registers and stack trace are available
+
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*
+Symbol search path is: srv*
+Executable search path is: 
+Windows 10 Kernel Version 19041 MP (16 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Edition build lab: 19041.1.amd64fre.vb_release.191206-1406
+Kernel base = 0xfffff807`10600000 PsLoadedModuleList = 0xfffff807`1122a790
+Debug session time: Mon Apr 22 18:35:54.948 2024 (UTC - 4:00)
+System Uptime: 0 days 20:17:57.574
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+..........................
+Loading User Symbols
+
+Loading unloaded module list
+.....................
+For analysis of this file, run !analyze -v
+nt!KeBugCheckEx:
+fffff807`109fda40 48894c2408      mov     qword ptr [rsp+8],rcx ss:0018:ffffcf01`7c6590f0=000000000000007e
+1: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_THREAD_EXCEPTION_NOT_HANDLED (7e)
+This is a very common BugCheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Arguments:
+Arg1: ffffffffc0000096, The exception code that was not handled
+Arg2: ffff890e86d7d228, The address that the exception occurred at
+Arg3: ffffe80766096578, Exception Record Address
+Arg4: ffffcf017c659920, Context Record Address
+
+Debugging Details:
+------------------
+
+
+KEY_VALUES_STRING: 1
+
+    Key  : Analysis.CPU.mSec
+    Value: 2249
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 5485
+
+    Key  : Analysis.IO.Other.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Read.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Write.Mb
+    Value: 0
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 327
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 1456
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 108
+
+    Key  : Bugcheck.Code.LegacyAPI
+    Value: 0x1000007e
+
+    Key  : Bugcheck.Code.TargetModel
+    Value: 0x1000007e
+
+    Key  : Failure.Bucket
+    Value: 0x7E_C0000096_nt!PspSystemThreadStartup$filt$0
+
+    Key  : Failure.Hash
+    Value: {5a19eade-1b33-204e-ee9a-60635ce5222c}
+
+    Key  : WER.OS.Branch
+    Value: vb_release
+
+    Key  : WER.OS.Version
+    Value: 10.0.19041.1
+
+
+BUGCHECK_CODE:  7e
+
+BUGCHECK_P1: ffffffffc0000096
+
+BUGCHECK_P2: ffff890e86d7d228
+
+BUGCHECK_P3: ffffe80766096578
+
+BUGCHECK_P4: ffffcf017c659920
+
+FILE_IN_CAB:  042224-15640-01.dmp
+
+EXCEPTION_RECORD:  ffffe80766096578 -- (.exr 0xffffe80766096578)
+ExceptionAddress: ffff890e86d7d228
+   ExceptionCode: c0000096
+  ExceptionFlags: 00000000
+NumberParameters: 0
+
+CONTEXT:  ffffcf017c659920 -- (.cxr 0xffffcf017c659920)
+rax=0000000080040031 rbx=fffff807141a1eb0 rcx=0000000000000028
+rdx=ffffcf017c600180 rsi=ffffe80766097610 rdi=b3b6d4ed6b209bd3
+rip=ffff890e86d7d228 rsp=ffffe807660967b0 rbp=ffffe807660968b0
+ r8=0000000000000002  r9=ffff890e86d673b7 r10=ffff890e86d6747f
+r11=0000000000000000 r12=0000000080050031 r13=0000000000000001
+r14=a39fc867189f289f r15=ffff890e72e5c040
+iopl=0         nv up ei pl zr na po cy
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00050247
+ffff890e`86d7d228 0f22c0          mov     cr0,rax
+Resetting default scope
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+
+
+BLACKBOXNTFS: 1 (!blackboxntfs)
+
+
+BLACKBOXPNP: 1 (!blackboxpnp)
+
+
+BLACKBOXWINLOGON: 1
+
+CUSTOMER_CRASH_COUNT:  1
+
+PROCESS_NAME:  System
+
+ERROR_CODE: (NTSTATUS) 0xc0000096 - {EXCEPTION}  Privileged instruction.
+
+EXCEPTION_CODE_STR:  c0000096
+
+EXCEPTION_STR:  0xc0000096
+
+STACK_TEXT:  
+ffffcf01`7c6590e8 fffff807`10a1bb5a     : 00000000`0000007e ffffffff`c0000096 ffff890e`86d7d228 ffffe807`66096578 : nt!KeBugCheckEx
+ffffcf01`7c6590f0 fffff807`109d0592     : fffff807`00000003 fffff807`106d83e4 ffffe807`66091000 ffffe807`66098000 : nt!PspSystemThreadStartup$filt$0+0x44
+ffffcf01`7c659130 fffff807`10a08572     : fffff807`106d83e4 ffffcf01`7c659710 fffff807`109d04f0 00000000`00000000 : nt!_C_specific_handler+0xa2
+ffffcf01`7c6591a0 fffff807`108aab47     : ffffcf01`7c659710 00000000`00000000 ffffe807`66097590 fffff807`1094ef55 : nt!RtlpExecuteHandlerForException+0x12
+ffffcf01`7c6591d0 fffff807`108a8a76     : ffffe807`66096578 ffffcf01`7c659e20 ffffe807`66096578 b3b6d4ed`6b209bd3 : nt!RtlDispatchException+0x297
+ffffcf01`7c6598f0 fffff807`109feba2     : ffffc501`c5259210 ffffffff`c0000005 fffff806`5661d837 ff005a9e`ff005a9e : nt!KiDispatchException+0x186
+ffffcf01`7c659fb0 fffff807`109feb70     : fffff807`10a123a5 ffffe807`66096678 00000000`00000000 ffff890e`862ae330 : nt!KxExceptionDispatchOnExceptionStack+0x12
+ffffe807`66096438 fffff807`10a123a5     : ffffe807`66096678 00000000`00000000 ffff890e`862ae330 00000000`00000000 : nt!KiExceptionDispatchOnExceptionStackContinue
+ffffe807`66096440 fffff807`10a0d7ab     : ffff890e`5dffec30 ffff890e`758d80c0 fffff807`135bd7f0 fffff807`13cd5c33 : nt!KiExceptionDispatch+0x125
+ffffe807`66096620 ffff890e`86d7d228     : ffffffff`b8797400 00000000`00000001 ffff890e`86d673b7 ffffffff`b8797400 : nt!KiGeneralProtectionFault+0x32b
+ffffe807`660967b0 ffffffff`b8797400     : 00000000`00000001 ffff890e`86d673b7 ffffffff`b8797400 ffff890e`63f92080 : 0xffff890e`86d7d228
+ffffe807`660967b8 00000000`00000001     : ffff890e`86d673b7 ffffffff`b8797400 ffff890e`63f92080 ffff890e`8b97fa90 : 0xffffffff`b8797400
+ffffe807`660967c0 ffff890e`86d673b7     : ffffffff`b8797400 ffff890e`63f92080 ffff890e`8b97fa90 00000000`00004000 : 0x1
+ffffe807`660967c8 ffffffff`b8797400     : ffff890e`63f92080 ffff890e`8b97fa90 00000000`00004000 ffff890e`63f0a0a0 : 0xffff890e`86d673b7
+ffffe807`660967d0 ffff890e`63f92080     : ffff890e`8b97fa90 00000000`00004000 ffff890e`63f0a0a0 00000000`00000000 : 0xffffffff`b8797400
+ffffe807`660967d8 ffff890e`8b97fa90     : 00000000`00004000 ffff890e`63f0a0a0 00000000`00000000 ffff890e`63f0a1f0 : 0xffff890e`63f92080
+ffffe807`660967e0 00000000`00004000     : ffff890e`63f0a0a0 00000000`00000000 ffff890e`63f0a1f0 ffff890e`86db67be : 0xffff890e`8b97fa90
+ffffe807`660967e8 ffff890e`63f0a0a0     : 00000000`00000000 ffff890e`63f0a1f0 ffff890e`86db67be fffff807`140bafb4 : 0x4000
+ffffe807`660967f0 00000000`00000000     : ffff890e`63f0a1f0 ffff890e`86db67be fffff807`140bafb4 ffff890e`86d673b7 : 0xffff890e`63f0a0a0
+
+
+SYMBOL_NAME:  nt!PspSystemThreadStartup$filt$0+44
+
+MODULE_NAME: nt
+
+IMAGE_NAME:  ntkrnlmp.exe
+
+IMAGE_VERSION:  10.0.19041.4291
+
+STACK_COMMAND:  .cxr; .ecxr ; kb
+
+BUCKET_ID_FUNC_OFFSET:  44
+
+FAILURE_BUCKET_ID:  0x7E_C0000096_nt!PspSystemThreadStartup$filt$0
+
+OS_VERSION:  10.0.19041.1
+
+BUILDLAB_STR:  vb_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {5a19eade-1b33-204e-ee9a-60635ce5222c}
+
+Followup:     MachineOwner
+---------
+

@@ -1,0 +1,260 @@
+
+************* Preparing the environment for Debugger Extensions Gallery repositories **************
+   ExtensionRepository : Implicit
+   UseExperimentalFeatureForNugetShare : true
+   AllowNugetExeUpdate : true
+   NonInteractiveNuget : true
+   AllowNugetMSCredentialProviderInstall : true
+   AllowParallelInitializationOfLocalRepositories : true
+
+   EnableRedirectToV8JsProvider : false
+
+   -- Configuring repositories
+      ----> Repository : LocalInstalled, Enabled: true
+      ----> Repository : UserExtensions, Enabled: true
+
+>>>>>>>>>>>>> Preparing the environment for Debugger Extensions Gallery repositories completed, duration 0.000 seconds
+
+************* Waiting for Debugger Extensions Gallery to Initialize **************
+
+>>>>>>>>>>>>> Waiting for Debugger Extensions Gallery to Initialize completed, duration 0.031 seconds
+   ----> Repository : UserExtensions, Enabled: true, Packages count: 0
+   ----> Repository : LocalInstalled, Enabled: true, Packages count: 41
+
+Microsoft (R) Windows Debugger Version 10.0.27553.1004 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [A:\MyStuff\Crash Logs\042324-14937-01.dmp]
+Mini Kernel Dump File: Only registers and stack trace are available
+
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*
+Symbol search path is: srv*
+Executable search path is: 
+Windows 10 Kernel Version 19041 MP (16 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Edition build lab: 19041.1.amd64fre.vb_release.191206-1406
+Kernel base = 0xfffff807`6de00000 PsLoadedModuleList = 0xfffff807`6ea2a790
+Debug session time: Tue Apr 23 19:38:10.757 2024 (UTC - 4:00)
+System Uptime: 0 days 23:57:06.383
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+............................
+Loading User Symbols
+PEB is paged out (Peb.Ldr = 000000ae`c3c85018).  Type ".hh dbgerr001" for details
+Loading unloaded module list
+...........................
+For analysis of this file, run !analyze -v
+nt!KeBugCheckEx:
+fffff807`6e1fda40 48894c2408      mov     qword ptr [rsp+8],rcx ss:0018:ffffbf80`d7b598f0=000000000000001e
+8: kd> !analyze -v
+06 ffffd28c`c7ffe780 ffffffff`b8797400     0xffffac0b`4521dfa7
+rax=0000000080040031 rbx=fffff80771ba1ff0 rcx=0000000000000028
+rdx=ffffbf80d7b00180 rsi=ffffd28cc7fff610 rdi=b3b6f7ea296af926
+rip=ffffac0b4521dfa7 rsp=ffffd28cc7ffe780 rbp=ffffd28cc7ffe880
+ r8=0000000000000002  r9=ffffac0b45208136 r10=ffffac0b452081fe
+r11=0000000000000000 r12=0000000080050031 r13=0000000000000001
+r14=a39feb63d6e9361e r15=ffffac0b35d6a040
+iopl=0         nv up ei pl zr na po nc
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00040246
+ffffac0b`4521dfa7 0f22c0          mov     cr0,rax
+06 ffffd28c`c7ffe780 ffffffff`b8797400     0xffffac0b`4521dfa7
+rax=0000000080040031 rbx=fffff80771ba1ff0 rcx=0000000000000028
+rdx=ffffbf80d7b00180 rsi=ffffd28cc7fff610 rdi=b3b6f7ea296af926
+rip=ffffac0b4521dfa7 rsp=ffffd28cc7ffe780 rbp=ffffd28cc7ffe880
+ r8=0000000000000002  r9=ffffac0b45208136 r10=ffffac0b452081fe
+r11=0000000000000000 r12=0000000080050031 r13=0000000000000001
+r14=a39feb63d6e9361e r15=ffffac0b35d6a040
+iopl=0         nv up ei pl zr na po nc
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00040246
+ffffac0b`4521dfa7 0f22c0          mov     cr0,rax
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+KMODE_EXCEPTION_NOT_HANDLED (1e)
+This is a very common BugCheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Arguments:
+Arg1: ffffffffc0000096, The exception code that was not handled
+Arg2: ffffac0b4521dfa7, The address that the exception occurred at
+Arg3: 0000000000000000, Parameter 0 of the exception
+Arg4: 0000000000000000, Parameter 1 of the exception
+
+Debugging Details:
+------------------
+
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Either you specified an unqualified symbol, or your debugger   ***
+***    doesn't have full symbol information.  Unqualified symbol      ***
+***    resolution is turned off by default. Please either specify a   ***
+***    fully qualified symbol module!symbolname, or enable resolution ***
+***    of unqualified symbols by typing ".symopt- 100". Note that     ***
+***    enabling unqualified symbol resolution with network symbol     ***
+***    server shares in the symbol path may cause the debugger to     ***
+***    appear to hang for long periods of time when an incorrect      ***
+***    symbol name is typed or the network symbol server is down.     ***
+***                                                                   ***
+***    For some commands to work properly, your symbol path           ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: ExceptionRecord                               ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Either you specified an unqualified symbol, or your debugger   ***
+***    doesn't have full symbol information.  Unqualified symbol      ***
+***    resolution is turned off by default. Please either specify a   ***
+***    fully qualified symbol module!symbolname, or enable resolution ***
+***    of unqualified symbols by typing ".symopt- 100". Note that     ***
+***    enabling unqualified symbol resolution with network symbol     ***
+***    server shares in the symbol path may cause the debugger to     ***
+***    appear to hang for long periods of time when an incorrect      ***
+***    symbol name is typed or the network symbol server is down.     ***
+***                                                                   ***
+***    For some commands to work properly, your symbol path           ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: ContextRecord                                 ***
+***                                                                   ***
+*************************************************************************
+
+KEY_VALUES_STRING: 1
+
+    Key  : Analysis.CPU.mSec
+    Value: 2624
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 5605
+
+    Key  : Analysis.IO.Other.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Read.Mb
+    Value: 0
+
+    Key  : Analysis.IO.Write.Mb
+    Value: 0
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 280
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 1683
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 98
+
+    Key  : Bugcheck.Code.LegacyAPI
+    Value: 0x1e
+
+    Key  : Bugcheck.Code.TargetModel
+    Value: 0x1e
+
+    Key  : Failure.Bucket
+    Value: 0x1E_C0000096_nt!KiDispatchException
+
+    Key  : Failure.Hash
+    Value: {505cfaff-0bdc-8a96-0650-5a81952f0ba1}
+
+    Key  : WER.OS.Branch
+    Value: vb_release
+
+    Key  : WER.OS.Version
+    Value: 10.0.19041.1
+
+
+BUGCHECK_CODE:  1e
+
+BUGCHECK_P1: ffffffffc0000096
+
+BUGCHECK_P2: ffffac0b4521dfa7
+
+BUGCHECK_P3: 0
+
+BUGCHECK_P4: 0
+
+FILE_IN_CAB:  042324-14937-01.dmp
+
+EXCEPTION_PARAMETER1:  0000000000000000
+
+EXCEPTION_PARAMETER2:  0000000000000000
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+
+
+BLACKBOXNTFS: 1 (!blackboxntfs)
+
+
+BLACKBOXPNP: 1 (!blackboxpnp)
+
+
+BLACKBOXWINLOGON: 1
+
+CUSTOMER_CRASH_COUNT:  1
+
+PROCESS_NAME:  csrss.exe
+
+STACK_TEXT:  
+ffffbf80`d7b598e8 fffff807`6e24dfa3     : 00000000`0000001e ffffffff`c0000096 ffffac0b`4521dfa7 00000000`00000000 : nt!KeBugCheckEx
+ffffbf80`d7b598f0 fffff807`6e1feba2     : 00000000`00000000 00000000`00000000 00000000`00000000 00000000`00000000 : nt!KiDispatchException+0x1a56b3
+ffffbf80`d7b59fb0 fffff807`6e1feb70     : fffff807`6e2123a5 00000000`00000000 01000000`00100000 ffffac0b`4bab1a20 : nt!KxExceptionDispatchOnExceptionStack+0x12
+ffffd28c`c7ffe408 fffff807`6e2123a5     : 00000000`00000000 01000000`00100000 ffffac0b`4bab1a20 fffff807`6b3e57a6 : nt!KiExceptionDispatchOnExceptionStackContinue
+ffffd28c`c7ffe410 fffff807`6e20d7ab     : 00000000`00000051 ffff8580`e627dba8 00000000`00000000 fffff807`6e49df9b : nt!KiExceptionDispatch+0x125
+ffffd28c`c7ffe5f0 ffffac0b`4521dfa7     : ffffffff`b8797400 00000000`00000001 ffffac0b`45208136 ffffffff`b8797400 : nt!KiGeneralProtectionFault+0x32b
+ffffd28c`c7ffe780 ffffffff`b8797400     : 00000000`00000001 ffffac0b`45208136 ffffffff`b8797400 00000000`00000000 : 0xffffac0b`4521dfa7
+ffffd28c`c7ffe788 00000000`00000001     : ffffac0b`45208136 ffffffff`b8797400 00000000`00000000 00000000`00000000 : 0xffffffff`b8797400
+ffffd28c`c7ffe790 ffffac0b`45208136     : ffffffff`b8797400 00000000`00000000 00000000`00000000 00000000`00000000 : 0x1
+ffffd28c`c7ffe798 ffffffff`b8797400     : 00000000`00000000 00000000`00000000 00000000`00000000 ffff8580`e13689f8 : 0xffffac0b`45208136
+ffffd28c`c7ffe7a0 00000000`00000000     : 00000000`00000000 00000000`00000000 ffff8580`e13689f8 ffff8580`dbd38010 : 0xffffffff`b8797400
+
+
+SYMBOL_NAME:  nt!KiDispatchException+1a56b3
+
+MODULE_NAME: nt
+
+IMAGE_NAME:  ntkrnlmp.exe
+
+IMAGE_VERSION:  10.0.19041.4291
+
+STACK_COMMAND:  .cxr; .ecxr ; kb
+
+BUCKET_ID_FUNC_OFFSET:  1a56b3
+
+FAILURE_BUCKET_ID:  0x1E_C0000096_nt!KiDispatchException
+
+OS_VERSION:  10.0.19041.1
+
+BUILDLAB_STR:  vb_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {505cfaff-0bdc-8a96-0650-5a81952f0ba1}
+
+Followup:     MachineOwner
+---------
+
